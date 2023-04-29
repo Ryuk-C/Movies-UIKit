@@ -20,6 +20,7 @@ final class HomeScreen: UIViewController {
 
     let viewModel = HomeViewModel()
     private var collectionView: UICollectionView!
+    private let padding: CGFloat = 16
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ extension HomeScreen: HomeScreenInterface {
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.reuseID)
 
         collectionView.pinToEdgesOf(view: view)
-        //collectionView.backgroundColor = .systemYellow
+
     }
 
 

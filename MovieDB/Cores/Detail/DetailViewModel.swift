@@ -27,10 +27,12 @@ extension DetailViewModel: DetailViewModelProtocol {
     func viewDidLoad() {
         
         view?.configureVC()
+        view?.configurePosyerImageView()
+        view?.downloadPosterImage()
+        view?.configureTitleLabel()
+        view?.configureDateLabel()
+        view?.configureOverviewLabel()
         
     }
-    
-    
-    
     
 }

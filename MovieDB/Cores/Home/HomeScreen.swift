@@ -12,12 +12,15 @@ protocol HomeScreenInterface: AnyObject {
     func configureVC()
     func configureCollectionView()
     func reloadCollectionView()
+    func navigateToDetailScreen(movie: MovieResult)
+    
 }
 
 final class HomeScreen: UIViewController {
 
     let viewModel = HomeViewModel()
     private var collectionView: UICollectionView!
+    private let padding: CGFloat = 16
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +29,6 @@ final class HomeScreen: UIViewController {
         viewModel.viewDidLoad()
 
     }
-
-
 
 }
 
@@ -51,7 +52,7 @@ extension HomeScreen: HomeScreenInterface {
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.reuseID)
 
         collectionView.pinToEdgesOf(view: view)
-        collectionView.backgroundColor = .systemYellow
+
     }
 
 
@@ -73,6 +74,10 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource {
 
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.getDetail(id: viewModel.movies[indexPath.item].id ?? 0)
+    }
+    
     func reloadCollectionView() {
         
         collectionView.reloadOnMainThread()
@@ -89,6 +94,14 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource {
             viewModel.getMovies()
         }
 
+    }
+
+    func navigateToDetailScreen(movie: MovieResult) {
+        DispatchQueue.main.async {
+            
+            self.navigationController?.pushViewController(DetailScreen(movie: movie), animated: true)
+            
+        }
     }
 
 

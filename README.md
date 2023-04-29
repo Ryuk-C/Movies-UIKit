@@ -9,7 +9,7 @@
 * Network request
 
 ## Screenshots 📷
-<img src="zero.png" width="200"> &emsp;<img src="first.png" width="200"> &emsp;<img src="second.png" width="200">
+<img src="first.png" width="200"> &emsp;<img src="second.png" width="200">
 
 
 

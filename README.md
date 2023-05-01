@@ -3,7 +3,7 @@
 ## Tech stack 🏗
 * Swift
 * UIKit
-* MVVM
+* MVVM-R
 * Programmatically UI
 * Pagination
 * Network request
